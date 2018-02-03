@@ -83,7 +83,72 @@ dd {
   }
 }
 
+.code-text {
+  font-family:Consolas,Monaco,Lucida Console;
+  background-color:#EEEEEE;
+  padding-left:7px;
+  width: 50%;
+  white-space: normal;
+  
+  highlighted {
+    color: red;
+  }
+  
+  ul {
+    list-style: none;
+  }
+}
 
+.code-title {
+  background-color:#DDDDDD;
+  padding-left: 7px;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+  width: 50%;
+  font-style: italic;
+}
+
+.result {
+  padding-bottom: 20px;
+}
+
+$rit-orange: #F36E21;
+$rit-brown: #513127;
+$code-fonts: Consolas,Monaco,Lucida Console;
+
+.test-rit-code {
+  font-family: $code-fonts;
+  color: $rit-orange;
+}
+
+$rit-orange: #F36E21;
+$rit-brown: #513127;
+
+@function test-reverse-color($color_s) {
+  @if $color_s == $rit-brown {
+    @return $rit-orange;
+  }
+  @else {
+    @return $rit-brown;
+  }
+}
+
+.test-color-brown {
+  color: test-reverse-color($rit-orange);
+}
+
+.test-color-orange {
+  color: test-reverse-color($rit-brown);
+}
+
+$max: 5;
+@for $i from 1 through $max {
+  $color: lighten($rit-brown, 100 - $i / $max * 100);
+
+  .li-#{$i} {
+    color: $color;
+  }
+}
 
 
 // Image Gallery SCSS
@@ -291,7 +356,6 @@ $foundation-5-top-bar-text-color: $white;
 }
 
 // END NAV BAR SCSS
-
 
 
 
