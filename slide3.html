@@ -15,6 +15,106 @@
           <h1>Slide 3: What is Motion UI?</h1>
         </div>
       </div>
+      
+      <dl>
+        <dt>
+          What is Motion UI?
+        </dt>
+        <dd>
+          Motion UI is a SASS library that also implements JS to bring complex transitions down to a single line of code.
+        </dd>
+      </dl>
+      
+      <dl>
+        <dt>
+          What kind of transitions can it do?
+        </dt>
+        <dd>
+          <div id="id-1" onclick="transitionIn('id-1', 'fade-in');">Stuff like this. (click me)</div>
+          <div id="id-2" onclick="transitionIn('id-2', 'hinge-in-from-top');">And this. (click me)</div>
+          <div id="id-3" onclick="transitionIn('id-3', 'spin-in');">And this. (click me)</div>
+          <div id="id-4" onclick="transitionIn('id-4', 'scale-in-up');">And this. (click me)</div>
+          <div id="id-5" onclick="transitionIn('id-5', 'hinge-in-from-middle-x');">And this. (click me)</div>
+        </dd>
+      </dl>
+      
+      <dl>
+        <dt>
+          What does the code for this look like?
+        </dt>
+        <dd>
+          <div class="code-title" style="width:100%">HTML</div>
+          <div class="code-text" style="width:100%">
+            <ul>
+              <li>&lt;script&gt;</li>
+              <li style="padding-left:20px;">  function transitionIn(id, <highlighted>transition</highlighted>) {</li>
+              <li style="padding-left:40px;">    <highlighted>MotionUI.animateIn("#" + id, transition);</highlighted></li>
+              <li style="padding-left:20px;">  }</li>
+              <li>&lt;/script&gt;</li>
+            
+              <li>&lt;div id="id-1" onclick="transitionIn('id-1', <highlighted>'fade-in'</highlighted>);"&gt;Stuff like this. (click me)&lt;/div&gt;</li>
+              <li>&lt;div id="id-2" onclick="transitionIn('id-2', <highlighted>'hinge-in-from-top'</highlighted>);"&gt;And this. (click me)&lt;/div&gt;</li>
+              <li>&lt;div id="id-3" onclick="transitionIn('id-3', <highlighted>'spin-in'</highlighted>);"&gt;And this. (click me)&lt;/div&gt;</li>
+              <li>&lt;div id="id-4" onclick="transitionIn('id-4', <highlighted>'scale-in-up'</highlighted>);"&gt;And this. (click me)&lt;/div&gt;</li>
+              <li>&lt;div id="id-5" onclick="transitionIn('id-5', <highlighted>'hinge-in-from-middle-x'</highlighted>);"&gt;And this. (click me)&lt;/div&gt;</li>
+            </ul>
+          </div>
+        </dd>
+      </dl>
+      
+      <dl>
+        <dt>
+          So what is the Motion UI Library doing there?
+        </dt>
+        <dd>
+          The library is transforming those string arguments in the 'animateIn()' function, into transitions during runtime. The library supports each of those string arguments natively, as well as allowing you to <strong>create your own</strong>:
+        
+          <div class="code-title" style="width:100%">SASS</div>
+          <div class="code-text" style="width:100%">
+            <ul>
+              <li>// SASS code</li>
+              <li>.mui-example {</li>
+              <li style="padding-left:20px;">  @include mui-hinge(</li>
+              <li style="padding-left:40px;">    $state: in,</li>
+              <li style="padding-left:40px;">    $from: top,</li>
+              <li style="padding-left:40px;">    $fade: true</li>
+              <li style="padding-left:20px;">  );</li>
+              <li>}</li>
+            </ul>
+          </div>
+          
+          <div class="code-title" style="width:100%">HTML</div>
+          <div class="code-text" style="width:100%">
+            <ul>
+              <li>
+                &lt;a class="secondary button" id="res-1-button" onclick="<highlighted>transitionIn('res-1-button', 'mui-example')</highlighted>"&gt;Resultant Transition&lt;/a&gt;
+              </li>
+            </ul>
+          </div>
+          
+          <div class="result">
+            <a class="secondary button" id="res-1-button" onclick="transitionIn('res-1-button', 'mui-example')">Resultant Transition</a>
+          </div>
+        
+        </dd>
+      </dl>
+      
+      <dl>
+        <dt>
+          What kind of transitions are possible?
+        </dt>
+        <dd>
+          <ul style="list-style: none;">
+            <li>There are animations for:</li>
+            <li style="padding-left:20px;">fade, hinge, shake, slide, spin, wiggle, & zoom</li>
+            <li>There are also transitions for:</li>
+            <li style="padding-left:20px;">rotation, direction, & duration</li>
+            <li>Transitions can be chained together or combined</li>
+          </ul>
+        </dd>
+      </dl>
+      
+      
 
       <footer>
         <ul>
@@ -30,6 +130,7 @@
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/what-input/dist/what-input.js"></script>
     <script src="bower_components/foundation-sites/dist/js/foundation.js"></script>
+    <script src="bower_components/motion-ui/dist/motion-ui.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>

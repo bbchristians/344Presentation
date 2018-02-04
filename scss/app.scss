@@ -357,7 +357,14 @@ $foundation-5-top-bar-text-color: $white;
 
 // END NAV BAR SCSS
 
-
+// Motion UI stuff
+.mui-example {
+  @include mui-hinge(
+    $state: in,
+    $from: top,
+    $fade: true
+  );
+}
 
 
 
